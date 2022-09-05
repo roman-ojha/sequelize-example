@@ -4,8 +4,22 @@
     -> Sequelize is a promise-based Node.js ORM tool for Postgres, MySQL, MariaDB, SQLite, Microsoft SQL Server, Amazon Redshift and Snowflake’s Data Cloud. It features solid transaction support, relations, eager and lazy loading, read replication and more.
 
 *) Setup
-    -> for this we will use Postgres as database
-    -> HTML template : https://traversymedia.com/downloads/codegig_html.zip
-        -> HTML will contain the coding job and can be able to search job
-    => Now create a database
+    *) Setup Database
+        -> for this we will use Postgres as database
         -> CREATE DATABASE codegig;
+        -> CREATE TABLE gigs(
+            id SERIAL PRIMARY KEY,
+            title VARCHAR(200),
+            technologies VARCHAR(200),
+            budget VARCHAR(20),
+            description TEXT,
+            contact_email VARCHAR(100),
+            createdAt DATE,
+            updatedAt DATE);
+    *) Setup Application
+        -> HTML template : https://traversymedia.com/downloads/codegig_html.zip
+            -> HTML will contain the coding job and can be able to search job
+        -> yarn add express body-parser sequelize pg pg-hstore express-handlebars
+            -> because we are using pg we will add pg driver 'pg-hstore'
+            -> express-handlebars: template engine
+        -> yarn add -D nodemon
