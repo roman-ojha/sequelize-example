@@ -4,10 +4,10 @@ import db from "../config/database.js";
 // Creating Model using Sequelize
 const Gig = db.define("gig", {
   // Define Model here
-  //   id: {
-  //       type: Sequelize.INTEGER,
-  //       primaryKey: true,
-  //     },
+  id: {
+    type: Sequelize.INTEGER,
+    primaryKey: true,
+  },
   title: {
     // add type of that file
     type: Sequelize.STRING,
@@ -24,12 +24,14 @@ const Gig = db.define("gig", {
   contact_email: {
     type: Sequelize.STRING,
   },
-  //   createdAt: {
-  //     type: Sequelize.DATE,
-  //   },
-  //   updatedAt: {
-  //     type: Sequelize.DATE,
-  //   },
+  createdAt: {
+    type: Sequelize.DATEONLY,
+    field: "createdat",
+  },
+  updatedAt: {
+    type: Sequelize.DATEONLY,
+    field: "updatedat",
+  },
 });
 
 // Export Gig Model
